@@ -24,3 +24,12 @@ print(new_series)
 year_sales = pd.Series([30,45,50], index=['Sales_2018','Sales_2019','Sales_2020'], name='Product_A')
 # Printing the year_sales
 print(year_sales)
+
+# Let's read some data from csv
+
+
+fuel = pd.read_csv('/Users/bt/Documents/GITHUB/python_small/fuel.csv')
+
+print(fuel.shape)
+
+print(fuel.head())
