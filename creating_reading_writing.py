@@ -30,6 +30,8 @@ print(year_sales)
 
 fuel = pd.read_csv('/Users/bt/Documents/GITHUB/python_small/fuel.csv')
 
-print(fuel.shape)
+fuel.drop('Unnamed: 0', axis=1, inplace=True)
+
+print(fuel.columns)
 
 print(fuel.head())
