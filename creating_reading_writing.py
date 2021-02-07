@@ -25,7 +25,6 @@ fuel.drop('Unnamed: 0', axis=1, inplace=True)
 
 # Both of the following operations are row first and column second
 # iloc
-# loc
 
 # This will give us the first row
 print(fuel.iloc[0:])
@@ -39,3 +38,27 @@ print(fuel.iloc[-5:,])
 # How about last 5 columnd
 print(fuel.iloc[:,-5])
 
+
+# Following two arguments will give same output
+
+print(fuel.loc[fuel.NumGears == 6])
+
+# Let's use two filtering options
+
+# The following one is an AND option
+
+print(fuel.loc[(fuel['NumGears'] < 6) & (fuel['EngDispl'] == 2.0)])
+
+# The following is an OR option
+
+print(fuel.loc[(fuel['NumGears'] <= 2) | (fuel['EngDispl'] == 2.0)])
+
+print(fuel.head())
+
+# Let's use the same argument but this time we will search in "Transmission" and look for "AM6" and "M6"
+
+print(fuel.loc[fuel.Transmission.isin(['AM6','M6'])])
+
+# Let's see if we have any "Transmission" with "Non Null"
+
+print(fuel.loc[fuel.Transmission.notnull()])
