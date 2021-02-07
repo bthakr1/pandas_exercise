@@ -20,6 +20,22 @@ fuel = pd.read_csv('/Users/bt/Documents/GITHUB/python_small/fuel.csv')
 
 fuel.drop('Unnamed: 0', axis=1, inplace=True)
 
-print(fuel.columns)
 
-print(fuel.head())
+# Indexing basically of following types
+
+# Both of the following operations are row first and column second
+# iloc
+# loc
+
+# This will give us the first row
+print(fuel.iloc[0:])
+
+# This will gives us the first column
+print(fuel.iloc[:,0])
+
+# Let's select the last 5 rows 
+print(fuel.iloc[-5:,])
+
+# How about last 5 columnd
+print(fuel.iloc[:,-5])
+
