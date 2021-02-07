@@ -27,15 +27,19 @@ fuel.drop('Unnamed: 0', axis=1, inplace=True)
 # iloc
 
 # This will give us the first row
+
 print(fuel.iloc[0:])
 
 # This will gives us the first column
+
 print(fuel.iloc[:,0])
 
 # Let's select the last 5 rows 
+
 print(fuel.iloc[-5:,])
 
 # How about last 5 columnd
+
 print(fuel.iloc[:,-5])
 
 # Following argument will give us all rows where NumGears == 6
@@ -59,3 +63,19 @@ print(fuel.loc[fuel.Transmission.isin(['AM6','M6'])])
 # Let's see if we have any "Transmission" with "Non Null"
 
 print(fuel.loc[fuel.Transmission.notnull()])
+
+# Let's look at summary
+
+print(fuel.describe().T)
+
+# We can also do it for single variables
+
+print(fuel['NumCyl'].describe().T)
+
+# To see the list of unique items 
+
+print(fuel['Transmission'].unique())
+
+# Let's also look at the frequency of each individual values
+
+print(fuel['Transmission'].value_counts())
