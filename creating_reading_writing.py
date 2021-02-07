@@ -38,8 +38,7 @@ print(fuel.iloc[-5:,])
 # How about last 5 columnd
 print(fuel.iloc[:,-5])
 
-
-# Following two arguments will give same output
+# Following argument will give us all rows where NumGears == 6
 
 print(fuel.loc[fuel.NumGears == 6])
 
@@ -52,8 +51,6 @@ print(fuel.loc[(fuel['NumGears'] < 6) & (fuel['EngDispl'] == 2.0)])
 # The following is an OR option
 
 print(fuel.loc[(fuel['NumGears'] <= 2) | (fuel['EngDispl'] == 2.0)])
-
-print(fuel.head())
 
 # Let's use the same argument but this time we will search in "Transmission" and look for "AM6" and "M6"
 
