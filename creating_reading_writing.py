@@ -9,7 +9,7 @@ print(classification_matrix)
 
 # Let's create a new repository
 
-new_matrix = pd.DataFrame({'Bob':['I Liked it','It was aweful'],'Sue':['Pretty Good','Bad']}, index=['Comment 1','Comment 2'])
+new_matrix = pd.DataFrame({'Bob':['I Liked it','It was aweful'],'Sue':['Pretty Good','Bad']}, index=['Product A','Product B'])
 
 # print the new matrix
 
