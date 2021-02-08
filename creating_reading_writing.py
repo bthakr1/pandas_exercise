@@ -1,5 +1,8 @@
 # importing pandas 
 import pandas as pd
+pd.set_option("display.precision",3)
+pd.set_option("display.expand_frame_repr", False)
+pd.set_option("display.max_rows", 25)
 
 # creating a matrix with yes and no
 classification_matrix = pd.DataFrame({'Yes':[50,21],'No':[131,21]},index=['Yes','No'])
@@ -79,3 +82,47 @@ print(fuel['Transmission'].unique())
 # Let's also look at the frequency of each individual values
 
 print(fuel['Transmission'].value_counts())
+
+# Let's see if we can use "map" properly.
+
+eng_display_mean = fuel.EngDispl.mean()
+
+fuel['EngDispl'].map(lambda p: p - eng_display_mean)
+
+# Grouping and Sorting
+
+print(fuel.head(2))
+
+# Grouping by NumGears
+# Equivalent SQL
+
+# SELECT NumGears, COUNT(ExhaustValvesPerCyl)
+# FROM fuel
+# GROUP BY NumGears
+# ORDER BY NumGears ASC
+
+print(fuel.groupby("NumGears")["ExhaustValvesPerCyl"].count())
+
+# Let's say we want to find out count of "ExhaustValvesPerCyl" for "NumGears" and "Transmission"
+
+# SELECT NumGears, Transmission, COUNT(ExhaustValvesPerCyl)
+# FROM fuel
+# GROUP BY 1, 2
+# ORDER BY 1, 2
+
+print(fuel.groupby(['NumGears','Transmission'])['ExhaustValvesPerCyl'].count())
+
+# We can also find out mean for each "ExhaustValvesPerCyl" per "NumGears"
+
+print(fuel.groupby('NumGears')['ExhaustValvesPerCyl'].mean())
+
+# Let's see if we can find some other measures as well such as "median" and "standard deviation"
+
+print(fuel.groupby('NumGears')['ExhaustValvesPerCyl'].agg(["mean","median","std", "min","max"]))
+
+# How about some sorting
+
+# Sorting by "NumGears" only and Descending
+
+print(fuel.sort_values(by='NumGears',ascending=False))
+
