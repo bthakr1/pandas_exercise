@@ -126,3 +126,23 @@ print(fuel.groupby('NumGears')['ExhaustValvesPerCyl'].agg(["mean","median","std"
 
 print(fuel.sort_values(by='NumGears',ascending=False))
 
+# Let's sort by "NumGears" and "TransLockup"
+
+print(fuel.sort_values(by=['NumGears','TransLockup']))
+
+# Let's find out about "Missing Data". Every data frame has it and it's very commmon in the real
+# world applications
+
+print(fuel[pd.isnull(fuel.NumGears)])
+
+print(fuel[pd.isnull(fuel.VarValveTiming)])
+
+# Since we do not have any null hence we are the happiest data scientist in the world now !!!
+
+# Rename the name of columns
+
+fuel.rename(columns={'NumGears':'NUMBER_GEARS'}, inplace=True)
+
+print(fuel.columns)
+
+
