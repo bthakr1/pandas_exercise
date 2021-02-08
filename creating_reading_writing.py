@@ -19,7 +19,7 @@ year_sales = pd.Series([30,45,50], index=['Sales_2018','Sales_2019','Sales_2020'
 
 # Let's read some data from csv
 
-fuel = pd.read_csv('/Users/bt/Documents/GITHUB/python_small/fuel.csv')
+fuel = pd.read_csv('https://raw.githubusercontent.com/bthakr1/pandas_exercise/main/fuel.csv')
 
 fuel.drop('Unnamed: 0', axis=1, inplace=True)
 
@@ -142,6 +142,8 @@ print(fuel[pd.isnull(fuel.VarValveTiming)])
 # Rename the name of columns
 
 fuel.rename(columns={'NumGears':'NUMBER_GEARS'}, inplace=True)
+
+# You can see the changes below.
 
 print(fuel.columns)
 
